@@ -2,8 +2,11 @@ package com.tactfactory.javaniveau2.tps.tp8;
 
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
+import java.util.List;
+
 import javax.xml.bind.JAXBException;
 
+import com.tactfactory.javaniveau2.tps.tp8.entities.Post;
 import com.tactfactory.javaniveau2.tps.tp8.managers.RestManager;
 
 /**
@@ -32,51 +35,51 @@ public class Tp8 {
   public static void main(String[] args)
       throws MalformedURLException, JAXBException, InstantiationException, IllegalAccessException,
       IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-//    RestManager<Post> rmUser = new RestManager<Post>("https://jsonplaceholder.typicode.com/", Post.class);
-//
-//    try {
-//      List<Post> posts = rmUser.getRestData().getItems();
-//      for (Post post : posts) {
-//        System.out.println(post);
-//      }
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    }
-//
-//    try {
-//      Post post = rmUser.getRestData().getItem(1);
-//      System.out.println(post);
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    }
-//
-//    try {
-//      Post toUpdate = rmUser.getRestData().getItem(1);
-//      toUpdate.setTitle("new Title");
-//      toUpdate.setBody("new Body");
-//      Post post = rmUser.getRestData().updateItem(toUpdate);
-//      System.out.println(post);
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    }
-//
-//    try {
-//      Post newPost = new Post();
-//      newPost.setTitle("new Title");
-//      newPost.setBody("new Body");
-//      newPost.setUserId(1);
-//      newPost.setId(1);
-//      Post post = rmUser.getRestData().postItem(newPost);
-//      System.out.println(post);
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    }
-//
-//    try {
-//      System.out.println(rmUser.getRestData().deleteItem(1));
-//    } catch (IOException e) {
-//      e.printStackTrace();
-//    }
-//    System.out.println(RestManager.checkAllEntities("https://jsonplaceholder.typicode.com/"));
+    RestManager<Post> rmUser = new RestManager<Post>("https://jsonplaceholder.typicode.com/", Post.class);
+
+    try {
+      List<Post> posts = rmUser.getRestData().getItems();
+      for (Post post : posts) {
+        System.out.println(post);
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      Post post = rmUser.getRestData().getItem(1);
+      System.out.println(post);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      Post toUpdate = rmUser.getRestData().getItem(1);
+      toUpdate.setTitle("new Title");
+      toUpdate.setBody("new Body");
+      Post post = rmUser.getRestData().updateItem(toUpdate);
+      System.out.println(post);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      Post newPost = new Post();
+      newPost.setTitle("new Title");
+      newPost.setBody("new Body");
+      newPost.setUserId(1);
+      newPost.setId(1);
+      Post post = rmUser.getRestData().postItem(newPost);
+      System.out.println(post);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      System.out.println(rmUser.getRestData().deleteItem(1));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    System.out.println(RestManager.checkAllEntities("https://jsonplaceholder.typicode.com/"));
   }
 }
